@@ -1,15 +1,23 @@
 # Develop
 
-1. `npm start`
+1. `npm i`
+2. `npm start`
 
 Open a new terminal:
 
-2. `cd backend`
-3. `npm start`
+3. `cd backend`
+4. `npm i`
+5. `npm start`
 
-# Build & Run
+# Build & Run in Node.js Environment
 
-- `npm i`
-- `npm build`
-- `cd backend`
-- `npm start`
+1. `npm i`
+2. `npm run build`
+3. `cd backend`
+4. `npm i`
+5. `npm start`
+
+# Build & Run for Docker
+
+1. `docker build . -t mas-se-wea/scaffold`
+2. `docker run -p 8080:8080 -d mas-se-wea/scaffold`
