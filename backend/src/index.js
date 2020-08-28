@@ -20,6 +20,10 @@ app.get('/api/todos', (req, res) => {
 		{
 			id: 3,
 			title: 'Read a good book'
+		},
+		{
+			id: 4,
+			title: 'Go to sleep'
 		}
 	])
 })
