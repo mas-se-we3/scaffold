@@ -28,6 +28,27 @@ app.get('/api/todos', (req, res) => {
 	])
 })
 
+app.get('/api/users', (req, res) => {
+	res.send([
+		{
+			id: 1,
+			name: 'Tobi'
+		},
+		{
+			id: 2,
+			name: 'Patrik'
+		},
+		{
+			id: 3,
+			name: 'Daniel'
+		},
+		{
+			id: 4,
+			name: 'Marcel'
+		}
+	])
+})
+
 app.use((req, res) => {
 	res.sendFile(path.resolve(frontendPath, 'index.html'))
 })
