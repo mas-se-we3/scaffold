@@ -83,3 +83,28 @@ test('handles todo API error', async () => {
 
 	expect(alertElement).toHaveTextContent(/Server Error/)
 })
+
+test('receives POST on backend', async () => {
+	const postCallback = jest.fn()
+	server.use(
+		rest.post('/api/todos', (req, res, ctx) => {
+			postCallback(req.body)
+			return res(ctx.status(204))
+		})
+	)
+
+	render(<App />)
+
+	const button = screen.getByText(/Post Dummy Todo/)
+	button.click()
+
+	await waitForElement(() => screen.getByText(/Posted/))
+
+	expect(postCallback.mock.calls.length).toBe(1)
+	expect(postCallback.mock.calls[0][0].id).toBe(99)
+	expect(postCallback.mock.calls[0][0].title).toBe('posting todo')
+	expect(postCallback.mock.calls[0][0]).toStrictEqual({
+		id: 99,
+		title: 'posting todo'
+	})
+})
